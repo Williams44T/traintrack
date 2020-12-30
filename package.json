@@ -1,0 +1,26 @@
+{
+  "name": "traintrack",
+  "version": "1.0.0",
+  "description": "track training",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Williams44T/traintrack.git"
+  },
+  "keywords": [
+    "workout"
+  ],
+  "author": "Travis Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Williams44T/traintrack/issues"
+  },
+  "homepage": "https://github.com/Williams44T/traintrack#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
