@@ -1,4 +1,5 @@
 import React from 'react';
+import { Login } from './';
 import $ from 'jquery';
 
 class Signup extends React.Component {
@@ -24,13 +25,13 @@ class Signup extends React.Component {
   }
 
   checkUsername(e, next=()=>{}) {
+    if (e) { e.preventDefault(); }
     if (this.state.username === '') {
       return this.setState({
         nameAvailable: null,
         usernameInfo: null
       }, next);
     }
-    if (e) { e.preventDefault(); }
     $.get('/users', {username: this.state.username, checkusername: true}, (users) => {
       this.setState({
         nameAvailable: users.length === 0 ? true : false,
@@ -93,6 +94,8 @@ class Signup extends React.Component {
         <input type="text" name="email" onChange={this.handleChange.bind(this)}/>
       </div>
       <input type="submit" value="Signup" onClick={this.signup.bind(this)}/>
+      <button onClick={()=>this.props.switch(<Login switch={this.props.switch}/>)}
+        >I already have an account</button>
     </form>);
   }
 };

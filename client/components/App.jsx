@@ -1,24 +1,31 @@
-import x from './' //components
 import React from 'react';
+import { Loading, Signup, Login, User } from './'
 import $ from 'jquery';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
+      view: <Loading/>,
     };
   }
 
+  switchViews(view) { this.setState({view}); }
+
   componentDidMount() {
-    $.get('/users', (data) => this.setState({user: data[0]}));
+    $.get('/users', (users) => {
+      if (users.length > 0) {
+        this.switchViews(<User user={users[0]}/>);
+      } else {
+        this.switchViews(<Login switch={this.switchViews.bind(this)}/>)
+      }
+    });
   }
 
   render() {
-    console.log('user', this.state.user);
     return (<div>
       <h1>TRAINTRACKS</h1>
-      {this.state.user ? <x.User user={this.state.user}/> : <x.Signup />}
+      {this.state.view}
     </div>);
   }
 }

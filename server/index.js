@@ -1,4 +1,4 @@
-var db = require('./db');
+require('./db');
 var express = require('express');
 var cookieParser = require('./middleware/cookieParser.js');
 var assignSession = require('./middleware/assignSession.js');
@@ -13,6 +13,7 @@ app.use(assignSession);
 
 app.get('/users', userController.find);
 app.post('/users', userController.add);
+app.get('/login', userController.login);
 app.post('/logout', userController.logout);
 
 var port = 8000;

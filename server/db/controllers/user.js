@@ -19,16 +19,24 @@ module.exports = {
     })
   },
 
+  login: (req, res) => {
+    console.log('login', req.query);
+    User.find(req.query, (err, users) => {
+      if (users.length === 0) { return res.sendStatus(404); }
+      users[0].session = req.body.session;
+      users[0].save()
+        .then((user) => res.json(user))
+        .catch((err) => console.log('ERROR LOGGING IN USER: ', err.message))
+    })
+  },
+
   logout: (req, res) => {
     console.log('logout', req.body);
     User.find(req.body, (err, user) => {
       if (err) { return console.log('ERROR FINDING USER TO LOGOUT: ', err.message); }
       user[0].session = null;
       user[0].save()
-        .then(() => {
-          console.log('about to void cookie');
-          res.clearCookie('traintracks').sendStatus(202);
-        })
+        .then(() => res.clearCookie('traintracks').sendStatus(202))
         .catch((err) => console.log('ERROR DESTROYING SESSION: ', err.message))
     })
   }
