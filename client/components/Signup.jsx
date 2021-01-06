@@ -31,7 +31,7 @@ class Signup extends React.Component {
       }, next);
     }
     if (e) { e.preventDefault(); }
-    $.get('/users', {username: this.state.username}, (users) => {
+    $.get('/users', {username: this.state.username, checkusername: true}, (users) => {
       this.setState({
         nameAvailable: users.length === 0 ? true : false,
         usernameInfo: users.length === 0 ? <p>' {this.state.username} ' is available</p> : <p>' {this.state.username} ' is not available</p>
@@ -68,7 +68,7 @@ class Signup extends React.Component {
         password: this.state.password,
         email: this.state.email
       };
-      $.post('/users', user);
+      $.post('/users', user, () => window.location.assign('/'));
     });
   }
 

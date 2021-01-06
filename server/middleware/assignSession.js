@@ -1,18 +1,14 @@
-var $ = require('jquery');
-
-var assignSession = (req, res, next) => {
-  if (req.cookies.traintracks !== undefined) {
-    req.session = req.cookies.traintracks;
-  }
-
-  //get the session
-  //if error
-    var id = createSession();
-    req.
-  //assign session to the req
-}
-
 var createSession = () => {
-  //create session
-  //return session id
+  return Math.random() * 1000000 + 100000;
 };
+
+module.exports = (req, res, next) => {
+  if (req.cookies.traintracks !== undefined) {
+    req.body.session = req.cookies.traintracks;
+  } else {
+    req.body.session = createSession();
+    res.cookie('traintracks', req.body.session);
+  }
+  next();
+};
+

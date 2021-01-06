@@ -11,10 +11,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.get('/sessions', (data) => this.setState({user: data}));
+    $.get('/users', (data) => this.setState({user: data[0]}));
   }
 
   render() {
+    console.log('user', this.state.user);
     return (<div>
       <h1>TRAINTRACKS</h1>
       {this.state.user ? <x.User user={this.state.user}/> : <x.Signup />}

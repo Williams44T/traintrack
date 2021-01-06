@@ -1,7 +1,8 @@
 module.exports = (req, res, next) => {
+  req.cookies = {};
   if (req.headers.cookie === undefined) { return next(); }
 
-  var cookies = req.headers.cookie.split(';');
+  var cookies = req.headers.cookie.split(' ').join('').split(';');
 
   cookies.forEach(cookie => {
     //cookieID to left of '='; cookie to right of '='
