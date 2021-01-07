@@ -3,13 +3,14 @@ import theme from './theme.js';
 
 export default {
   Wrap: styled.div`
-    display: flex;
     align-items: center;
     flex-direction: column;
+    width: 100%;
     background-color: ${theme.color};
   `,
 
   Title: styled.h1`
-
+    margin-right: auto;
+    margin-left: ${theme.space.horz};
   `,
 }
