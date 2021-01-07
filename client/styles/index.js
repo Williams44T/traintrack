@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export { default as AppS } from './app.js';
 export { default as UserS } from './user.js';
+export { default as CalendarS } from './calendar.js';
 
 var Global = createGlobalStyle`
 * {
@@ -9,6 +10,7 @@ var Global = createGlobalStyle`
   margin: 0;
   padding: 0;
 }
+
 div {
   display: flex;
 }

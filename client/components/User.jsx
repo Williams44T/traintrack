@@ -1,4 +1,5 @@
 import React from 'react';
+import { Loading, Calendar } from './';
 import { UserS } from '../styles';
 import $ from 'jquery';
 
@@ -7,10 +8,14 @@ class User extends React.Component {
     super(props);
     this.state = {
       defaultImg: '../../images/user-default-img.jpg',
-      view: '',//default view
+      view: <Loading/>,
       title: 'CALENDAR',
     }
   }
+
+  switchViews(view) { this.setState({view}) }
+
+  componentDidMount() { this.switchViews(<Calendar user={this.props.user} />) }
 
   logout() {
     $.post('/logout', {session: this.props.user.session}, () => window.location.assign('/'))
@@ -27,7 +32,7 @@ class User extends React.Component {
           <button onClick={this.logout.bind(this)}>Logout</button>
         </UserS.Profile>
       </UserS.Control>
-      <div>{this.state.view}</div>
+      {this.state.view}
       <p>motovational quote</p>
     </UserS.Wrap>;
   }
