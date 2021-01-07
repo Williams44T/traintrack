@@ -1,5 +1,6 @@
 import React from 'react';
-import { Loading, Signup, Login, User } from './'
+import { Loading, Signup, Login, User } from './';
+import { Global, AppS } from '../styles';
 import $ from 'jquery';
 
 class App extends React.Component {
@@ -23,10 +24,11 @@ class App extends React.Component {
   }
 
   render() {
-    return (<div>
-      <h1>TRAINTRACKS</h1>
+    return <AppS.Wrap>
+      <Global />
+      <AppS.Title>TRAINTRACKS</AppS.Title>
       {this.state.view}
-    </div>);
+    </AppS.Wrap>
   }
 }
 
