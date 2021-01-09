@@ -9,7 +9,13 @@ export default {
     height: ${props => props.view === 'month' ? '80px': '400px'};
     margin: 4px;
     border-radius: 10px;
-    background-color: ${theme.colors.card};
+    background-color: ${props => {
+      if (props.view === 'week' || (props.view === 'month' && props.target === props.actual)) {
+        return theme.colors.card;
+      } else {
+        return '#b8b8d7';
+      }
+    }}
   `,
 
   Date: styled.div`

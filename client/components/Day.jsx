@@ -11,7 +11,10 @@ export default class Day extends React.Component {
   }
 
   render() {
-    return <DayS.Wrap view={this.props.view}>
+    return <DayS.Wrap
+      view={this.props.view}
+      target={this.props.target.getMonth()}
+      actual={this.props.day.getMonth()}>
       <DayS.Date>{this.props.day.getDate()}</DayS.Date>
     </DayS.Wrap>;
   }

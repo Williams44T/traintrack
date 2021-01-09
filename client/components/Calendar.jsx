@@ -19,16 +19,16 @@ export default class Calendar extends React.Component {
     e.preventDefault;
     var date = this.state.date;
     if (this.state.view === 'week') {
-      e.target.value === 'next' ? date.setDate(date.getDate() + 7) : date.setDate(date.getDate() - 7)
+      e.target.value === 'next' ? date.setDate(date.getDate() + 7) : date.setDate(date.getDate() - 7);
     } else {
-      e.target.value === 'next' ? date.setMonth(date.getMonth() + 1) : date.setMonth(date.getMonth() - 1)
+      e.target.value === 'next' ? date.setMonth(date.getMonth() + 1) : date.setMonth(date.getMonth() - 1);
     }
     this.setState({date});
   }
 
   changeView(e) {
     e.preventDefault;
-    if (e.target.value === "today") { this.setState({date: new Date()})}
+    if (e.target.value === "today") { return this.setState({date: new Date()})}
     this.setState({[e.target.id]: e.target.value});
   }
 
@@ -36,13 +36,16 @@ export default class Calendar extends React.Component {
     var calendar = getCalendar(new Date(this.state.date), this.state.view, this.state.days);
     calendar = calendar.map((week, i) => {
       return <CalendarS.Week key={i}>{week.map((date, i) => {
-        return <Day key={i} day={date} view={this.state.view} />
+        return <Day
+          key={i}
+          day={date}
+          view={this.state.view}
+          target={this.state.date} />
       })}</CalendarS.Week>;
     });
 
     return <CalendarS.Wrap>
       <CalendarS.Control>
-        {/* <CalendarS.Menu src="../../images/menu.png" /> */}
         <select id="view" onChange={this.changeView.bind(this)}>
           <option value="month">MONTH</option>
           <option value="week">WEEK</option>
