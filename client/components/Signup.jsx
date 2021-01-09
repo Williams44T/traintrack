@@ -2,7 +2,7 @@ import React from 'react';
 import { Login } from './';
 import $ from 'jquery';
 
-class Signup extends React.Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -99,5 +99,3 @@ class Signup extends React.Component {
     </form>);
   }
 };
-
-export default Signup;

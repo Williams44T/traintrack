@@ -3,7 +3,7 @@ import { Loading, Signup, Login, User } from './';
 import { Global, AppS } from '../styles';
 import $ from 'jquery';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,5 +31,3 @@ class App extends React.Component {
     </AppS.Wrap>
   }
 }
-
-export default App;

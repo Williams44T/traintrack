@@ -1,5 +1,1 @@
-import signup from './signup.js';
-
-export default {
-  signup,
-}
+export { default as getCalendar } from './calendar.js';

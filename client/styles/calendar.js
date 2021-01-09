@@ -6,19 +6,21 @@ export default {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-color: ${theme.color};
   `,
 
   Control: styled.div`
-  width: 50%;
-  justify-content: center;
+    width: 100%;
+    justify-content: space-between;
   `,
 
   Menu: styled.img`
+    width: 40px;
+    height: 40px;
   `,
 
   Panel: styled.div`
     justify-content: space-between;
+    align-items: center;
     width: 50%;
   `,
 
@@ -28,9 +30,17 @@ export default {
   Headers: styled.div`
     justify-content: space-evenly;
     width: 100%;
+    font-size: ${theme.font.small};
   `,
 
   Header: styled.div`
+    width: 100%;
+    justify-content: center;
+  `,
+
+  Week: styled.div`
+  justify-content: space-around;
+  width: 100%;
   `,
 
 }

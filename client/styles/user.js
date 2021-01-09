@@ -12,10 +12,16 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
   `,
 
   ViewTitle: styled.p`
     font-size: ${theme.font.med};
+    font-family: ${theme.font.family.header};
   `,
 
   Profile: styled.div`
@@ -31,6 +37,5 @@ export default {
 
   Name: styled.p`
     font-size: ${theme.font.small};
-
   `,
 }

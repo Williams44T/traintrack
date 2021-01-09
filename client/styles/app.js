@@ -6,11 +6,12 @@ export default {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-color: ${theme.color};
+    padding: 15px;
   `,
 
   Title: styled.h1`
     margin-right: auto;
     margin-left: ${theme.space.horz};
+    font-family: ${theme.font.family.header};
   `,
 }

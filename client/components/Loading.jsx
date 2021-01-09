@@ -1,7 +1,5 @@
 import React from 'react';
 
-var Loading = (props) => {
+export default (props) => {
   return <img src='../../images/loading.gif'/>
 };
-
-export default Loading;

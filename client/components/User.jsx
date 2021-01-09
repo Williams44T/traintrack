@@ -3,7 +3,7 @@ import { Loading, Calendar } from './';
 import { UserS } from '../styles';
 import $ from 'jquery';
 
-class User extends React.Component {
+export default class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class User extends React.Component {
   render() {
     return <UserS.Wrap>
       <UserS.Control>
-        <UserS.Img src='../../images/menu.png' />
+        <UserS.Img src="../../images/menu.png" />
         <UserS.ViewTitle>{this.state.title}</UserS.ViewTitle>
         <UserS.Profile>
           <UserS.Img src={this.props.user.image || this.state.defaultImg} />
@@ -37,5 +37,3 @@ class User extends React.Component {
     </UserS.Wrap>;
   }
 }
-
-export default User;
