@@ -10,6 +10,7 @@ var userSchema = mongoose.Schema({
     default: null
   },
   settings: schemas.settings,
+  workouts: [schemas.workouts],
 });
 
 module.exports = mongoose.model('User', userSchema);
