@@ -17,6 +17,7 @@ export default {
 
   space: {
     horz: '12px',
+    exerciseForm: '7px',
   },
 
 };

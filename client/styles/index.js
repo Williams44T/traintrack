@@ -5,6 +5,8 @@ export { default as UserS } from './user.js';
 export { default as CalendarS } from './calendar.js';
 export { default as DayS } from './day.js';
 export { default as AddTrainingS } from './addTraining.js';
+export { default as DateAndTitleS } from './dateAndTitle.js';
+export { default as AddExerciseS } from './addExercise.js';
 
 var Global = createGlobalStyle`
 * {
