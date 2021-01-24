@@ -4,9 +4,11 @@
   "description": "track training",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --watch",
     "start": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch"
+    "setup": "pm2 deploy ecosystem.config.js production setup",
+    "update": "pm2 deploy ecosystem.config.js production"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mongoose": "^5.11.9",
+    "pm2": "^4.5.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1",
