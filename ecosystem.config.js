@@ -11,7 +11,7 @@ module.exports = {
       ref: 'origin/main',
       repo: 'https://github.com/Williams44T/traintrack.git',
       path: '/home/ubuntu/traintracks',
-      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js'
+      'post-deploy': 'npm install && npx webpack && pm2 startOrRestart ecosystem.config.js'
     }
   }
 }
