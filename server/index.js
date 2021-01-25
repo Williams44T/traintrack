@@ -11,7 +11,7 @@ app.use(getDeviceType);
 app.use((req, res, next) => {
   if (req.device === 'mobile') { return res.send('currently not supporting mobile'); }
   if (req.device === 'tablet') { return res.send('currently not supporting tablet'); }
-  if (req.device !== 'mobile' && req.device !== 'tablet') { app.use(express.static(__dirname + '/../public')); }
+  if (req.device === 'desktop') { app.use(express.static(__dirname + '/../public')); }
   next();
 });
 app.use(express.json());
