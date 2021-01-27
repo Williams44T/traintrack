@@ -1,10 +1,10 @@
 var path = require('path');
 
-module.exports = {
+module.exports = [{
   mode: 'development',
-  entry: './client/index.js',
+  entry: './client/desktop/index.js',
   output: {
-    path: path.resolve(__dirname, './public'),
+    path: path.resolve(__dirname, './public/desktop'),
     filename: 'bundle.js'
   },
   module: {
@@ -16,4 +16,21 @@ module.exports = {
       }
     ]
   }
-};
+},
+{
+  mode: 'development',
+  entry: './client/mobile/index.js',
+  output: {
+    path: path.resolve(__dirname, './public/mobile'),
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)?/,
+        exclude: /(node_modules)/,
+        use: 'babel-loader'
+      }
+    ]
+  }
+}];
