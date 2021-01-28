@@ -7,7 +7,7 @@ export default class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      defaultImg: '../../images/user-default-img.jpg',
+      defaultImg: 'images/user-default-img.jpg',
       view: <Loading/>,
       title: 'CALENDAR',
     }
@@ -24,7 +24,7 @@ export default class User extends React.Component {
   render() {
     return <UserS.Wrap>
       <UserS.Control>
-        <UserS.Img src="../../images/menu.png" />
+        <UserS.Img src="images/menu.png" />
         <UserS.ViewTitle>{this.state.title}</UserS.ViewTitle>
         <UserS.Profile>
           <UserS.Img src={this.props.user.image || this.state.defaultImg} />

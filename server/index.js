@@ -8,11 +8,11 @@ var userController = require('./db/controllers/user.js');
 var app = express();
 
 app.use(getDeviceType);
-app.use((req, res, next) => {
-  if (req.device === 'tablet') { return res.send('currently not supporting tablet'); }
-  app.use(express.static(__dirname + '/../public/' + req.device));
-  next();
-});
+app.use('/desktop', express.static(__dirname + '/../public/desktop'))
+app.use('/mobile', express.static(__dirname + '/../public/mobile'));
+app.use('/tablet', express.static(__dirname + '/../public/desktop'));//until I make tablet specific files
+app.use('/images', express.static(__dirname + '/../public/images'));
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser);
