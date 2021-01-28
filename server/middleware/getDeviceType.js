@@ -1,18 +1,18 @@
 module.exports = (req, res, next) => {
   if (req.url !== '/') { return next(); }
   const ua = req.get('user-agent');
-  req.url = '/desktop' + req.url;
+  req.url = '/desktop';
 
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    req.url = '/tablet' + req.url;
+    req.url = '/tablet';
     return next();
   }
 
   if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
-    req.url = '/mobile' + req.url;
+    req.url = '/mobile';
     return next();
   }
-  console.log(req.url);
+
   next();
 };
 

@@ -1,5 +1,4 @@
 module.exports = (req, res, next) => {
-  console.log('at cookie parser', req.url);
   req.cookies = {};
   if (req.headers.cookie === undefined) { return next(); }
 
